@@ -41070,7 +41070,7 @@ for(p=0;p<s;p=o){o=p+1
 q[p]=new A.md(new A.ce("\u0426\u0438\u043a\u043b "+o,B.cM,B.aD),$.al())}n.d=q
 s=n.a.c
 q=J.IS(s,r)
-for(p=0;p<s;++p)q[p]=new A.md(new A.ce("60",B.cM,B.aD),$.al())
+for(p=0;p<s;++p)q[p]=new A.md(new A.ce("5",B.cM,B.aD),$.al())
 n.e=q},
 l(){var s,r,q,p,o=this
 $.V.fo(o)
