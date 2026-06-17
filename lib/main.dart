@@ -403,7 +403,7 @@ class _CycleSetupScreenState extends State<CycleSetupScreen> with WidgetsBinding
     );
     _durationControllers = List.generate(
       widget.cycleCount,
-      (i) => TextEditingController(text: '60'),
+      (i) => TextEditingController(text: '5'),
     );
   }
 
