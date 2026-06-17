@@ -1,0 +1,32 @@
+[
+  // Flutter Build Web - Ctrl+Shift+B (эсвэл Cmd+Shift+B Mac дээр)
+  {
+    "key": "ctrl+shift+b",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Flutter Build Web"
+  },
+  // Flutter Run Web - Ctrl+Shift+R
+  {
+    "key": "ctrl+shift+r",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Flutter Run Web"
+  },
+  // Flutter Build APK - Ctrl+Shift+A
+  {
+    "key": "ctrl+shift+a",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Flutter Build APK"
+  },
+  // Flutter Clean - Ctrl+Shift+C
+  {
+    "key": "ctrl+shift+c",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Flutter Clean"
+  },
+  // Deploy to GitHub Pages - Ctrl+Shift+D
+  {
+    "key": "ctrl+shift+d",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Deploy to GitHub Pages"
+  }
+]

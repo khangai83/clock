@@ -1,0 +1,63 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Flutter Build Web",
+      "type": "shell",
+      "command": "flutter build web --release",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Flutter Run Web",
+      "type": "shell",
+      "command": "flutter run -d chrome",
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Flutter Build APK",
+      "type": "shell",
+      "command": "flutter build apk --release",
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Flutter Clean",
+      "type": "shell",
+      "command": "flutter clean && flutter pub get",
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Deploy to GitHub Pages",
+      "type": "shell",
+      "command": "flutter build web --release && cd build/web && git init && git add -A && git commit -m 'deploy' && git branch -M gh-pages && git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git && git push -f origin gh-pages",
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    }
+  ]
+}
