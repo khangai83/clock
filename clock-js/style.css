@@ -1,0 +1,441 @@
+/* ============================================
+   🌬️ Timer - Амьсгалын дасгал
+   CSS стиль
+   ============================================ */
+
+/* Үндсэн тохиргоо */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  color: #333;
+}
+
+/* Үндсэн сав */
+.container {
+  background: white;
+  border-radius: 24px;
+  padding: 24px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Гарчиг */
+.title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 800;
+  color: #1a1a2e;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 24px;
+}
+
+/* Алхам харуулах/нуух */
+.step {
+  display: none;
+}
+.step.active {
+  display: block;
+}
+
+/* ============ АЛХАМ 1: Картууд ============ */
+.card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f8f9ff;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.card-icon {
+  font-size: 28px;
+  width: 48px;
+  text-align: center;
+}
+
+.card-content {
+  flex: 1;
+}
+
+.card-content h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.card-content p {
+  font-size: 12px;
+  color: #888;
+}
+
+/* ============ Товчнууд ============ */
+.btn-primary {
+  width: 100%;
+  padding: 14px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 8px;
+}
+
+.btn-primary:hover {
+  background: #5a6fd6;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+  flex: 1;
+  padding: 14px;
+  background: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  background: #f0f2ff;
+}
+
+.btn-start {
+  flex: 1;
+  padding: 14px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-start:hover {
+  background: #5a6fd6;
+  transform: translateY(-1px);
+}
+
+.btn-start.running {
+  background: #f5576c;
+}
+
+.btn-start.running:hover {
+  background: #e04a5e;
+}
+
+.btn-reset {
+  flex: 1;
+  padding: 14px;
+  background: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-reset:hover {
+  background: #f0f2ff;
+}
+
+.btn-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+/* ============ Тоо оруулах ============ */
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.input-group input {
+  width: 60px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 8px;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  outline: none;
+}
+
+.input-group input:focus {
+  border-color: #667eea;
+}
+
+.btn-minus, .btn-plus {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-minus {
+  background: #fee2e2;
+  color: #ef4444;
+}
+
+.btn-minus:hover {
+  background: #fecaca;
+}
+
+.btn-plus {
+  background: #dcfce7;
+  color: #22c55e;
+}
+
+.btn-plus:hover {
+  background: #bbf7d0;
+}
+
+/* ============ АЛХАМ 2: Цикл тохируулах ============ */
+.page-indicator {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.page-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background: #ddd;
+  transition: all 0.3s;
+}
+
+.page-dot.active {
+  width: 24px;
+  background: #667eea;
+}
+
+.cycle-card {
+  background: #f8f9ff;
+  border: 2px solid rgba(102, 126, 234, 0.2);
+  border-radius: 20px;
+  padding: 24px;
+  text-align: center;
+}
+
+.cycle-number {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0 auto 16px;
+}
+
+.cycle-card label {
+  display: block;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 500;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+.cycle-input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  outline: none;
+  margin-bottom: 16px;
+}
+
+.cycle-input:focus {
+  border-color: #667eea;
+}
+
+/* ============ АЛХАМ 3: Дасгал ============ */
+.phase-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+/* Тойрог */
+.circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #e0e5ff, #e0e5ff);
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s;
+}
+
+.circle.speaking {
+  background: linear-gradient(135deg, #667eea, #5a6fd6);
+}
+
+.circle.counting {
+  background: linear-gradient(135deg, #43e97b, #38d976);
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.circle-text {
+  text-align: center;
+  color: white;
+}
+
+.circle-text span {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.circle-text .seconds {
+  font-size: 40px;
+  font-weight: 800;
+  margin-top: 4px;
+}
+
+/* Прогресс бар */
+.progress-bar {
+  height: 4px;
+  background: #eee;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 3px;
+  transition: width 0.3s;
+  width: 0%;
+}
+
+/* Статистик */
+.stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #888;
+  margin-top: 12px;
+}
+
+/* Циклийн жагсаалт */
+.cycle-list {
+  background: #f8f9ff;
+  border-radius: 16px;
+  padding: 12px;
+  margin-top: 12px;
+}
+
+.cycle-list h4 {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.cycle-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 0;
+}
+
+.cycle-item:not(:last-child) {
+  margin-bottom: 6px;
+}
+
+.cycle-index {
+  width: 24px;
+  height: 24px;
+  background: #667eea;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.cycle-name {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.cycle-duration {
+  font-size: 12px;
+  color: #888;
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 480px) {
+  .container {
+    padding: 16px;
+  }
+  .circle {
+    width: 160px;
+    height: 160px;
+  }
+  .circle-text .seconds {
+    font-size: 32px;
+  }
+}

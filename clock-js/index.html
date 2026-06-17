@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌬️ Timer - Амьсгалын дасгал</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Гарчиг -->
+    <h1 class="title">🌬️ Timer</h1>
+    <p class="subtitle">Амьсгалын дасгал</p>
+
+    <!-- Алхам 1: Эхлэл тохиргоо -->
+    <div id="step1" class="step active">
+      <div class="card">
+        <div class="card-icon">🔄</div>
+        <div class="card-content">
+          <h3>Циклийн тоо</h3>
+          <p>Хэдэн циклтэй байх вэ?</p>
+        </div>
+        <div class="input-group">
+          <button class="btn-minus" onclick="changeValue('cycleCount', -1)">−</button>
+          <input type="number" id="cycleCount" value="3" min="1" max="50">
+          <button class="btn-plus" onclick="changeValue('cycleCount', 1)">+</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">⏱️</div>
+        <div class="card-content">
+          <h3>Дуусах хугацаа</h3>
+          <p>Нийт хэдэн минут үргэлжлэх вэ?</p>
+        </div>
+        <div class="input-group">
+          <button class="btn-minus" onclick="changeValue('finishMinutes', -1)">−</button>
+          <input type="number" id="finishMinutes" value="5" min="1" max="120">
+          <button class="btn-plus" onclick="changeValue('finishMinutes', 1)">+</button>
+        </div>
+      </div>
+
+      <button class="btn-primary" onclick="goToStep2()">
+        Циклүүдээ тохируулах →
+      </button>
+    </div>
+
+    <!-- Алхам 2: Цикл тохируулах -->
+    <div id="step2" class="step">
+      <div class="page-indicator" id="pageIndicator"></div>
+
+      <div class="cycle-card" id="cycleCard">
+        <div class="cycle-number" id="cycleNumber">1</div>
+        <label>Циклийн нэр</label>
+        <input type="text" id="cycleName" class="cycle-input" value="Цикл 1">
+        <label>Үргэлжлэх хугацаа (секунд)</label>
+        <div class="input-group">
+          <button class="btn-minus" onclick="changeCycleDuration(-1)">−</button>
+          <input type="number" id="cycleDuration" value="5" min="1" max="600">
+          <button class="btn-plus" onclick="changeCycleDuration(5)">+</button>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn-secondary" id="prevBtn" onclick="prevCycle()">← Өмнөх</button>
+        <button class="btn-primary" id="nextBtn" onclick="nextCycle()">Дараах →</button>
+      </div>
+    </div>
+
+    <!-- Алхам 3: Дасгал -->
+    <div id="step3" class="step">
+      <div class="phase-badge" id="phaseBadge">🔄 Цикл 1</div>
+
+      <!-- Тойрог -->
+      <div class="circle" id="circle">
+        <div class="circle-text">
+          <span id="phaseText">Бэлэн</span>
+          <span class="seconds" id="secondsDisplay"></span>
+        </div>
+      </div>
+
+      <!-- Прогресс бар -->
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+
+      <!-- Товчнууд -->
+      <div class="btn-row">
+        <button class="btn-start" id="startBtn" onclick="toggleBreathing()">▶ Эхлэх</button>
+        <button class="btn-reset" onclick="resetToStep1()">⟲ Шинэчлэх</button>
+      </div>
+
+      <!-- Статистик -->
+      <div class="stats">
+        <span id="cycleStats">Цикл: 0 / 3</span>
+        <span id="timeStats">Үлдсэн: 5:00</span>
+      </div>
+
+      <!-- Циклийн жагсаалт -->
+      <div class="cycle-list" id="cycleList"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
